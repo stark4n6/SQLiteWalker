@@ -11,3 +11,8 @@ options:
   -o OUTPUT_PATH, --output_path OUTPUT_PATH Output folder path  
   -q, --quiet_mode      Turns off console path output  
 ```
+
+### To-Do List
+- GUI
+- .TAR support
+- Extract -wal / -shm
