@@ -24,7 +24,7 @@ ____    __    ____  ___       __       __  ___  _______ .______
     
                 SQLite Walker
                 https://github.com/stark4n6/SQLite_Walker
-                @stark4n6 | startme.stark4n6.com
+                @KevinPagano3 | @stark4n6 | startme.stark4n6.com
                                                                      '''
 
 def is_platform_windows():
