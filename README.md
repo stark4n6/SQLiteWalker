@@ -25,4 +25,4 @@ options:
 - Extract -wal / -shm
 
 ## Acknowledgements
-What sparked the project was being able to hunt SQLite database files using Eric Zimmerman's [SQLECmd](https://github.com/EricZimmerman/SQLECmd/tree/master/SQLECmd) while just producing a list of files only (no map parsing). In the [DFIR Museum](https://github.com/AndrewRathbun/DFIRArtifactMuseum/tree/main/Android) there are similar text file outputs that Andrew Rathbun created. I want to thank Alexis Brignoni for small snippets of code pulled from ALEAPP.
+What sparked the project was being able to hunt SQLite database files using Eric Zimmerman's [SQLECmd](https://github.com/EricZimmerman/SQLECmd/tree/master/SQLECmd) while just producing a list of files only (no map parsing). In the [DFIR Museum](https://github.com/AndrewRathbun/DFIRArtifactMuseum/tree/main/Android) there are similar text file outputs that Andrew Rathbun created which gave me the idea for this script. I want to thank Alexis Brignoni for small snippets of code pulled from ALEAPP.
