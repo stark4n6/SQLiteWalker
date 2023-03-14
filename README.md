@@ -12,7 +12,7 @@ The script has only been run on test data, use at your own risk!
 
 ## Command Line Switches
 ```
-usage: SQLite_Walker.py [-h] -i INPUT_PATH -o OUTPUT_PATH [-q]
+usage: SQLiteWalker.py [-h] -i INPUT_PATH -o OUTPUT_PATH [-q]
 
 options:
   -h, --help            show this help message and exit  
