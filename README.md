@@ -1,3 +1,5 @@
+![alt text](https://github.com/stark4n6/SQLite-Walker/blob/main/SQLiteWalker.png)
+
 # SQLite Walker
 Python script to walk a folder or a zip file for SQLite Databases. It will export them to the output path as well as create a TSV formatted export file with a list of files found. The TSV includes the file name, paths from the source, and the table structure.
 
