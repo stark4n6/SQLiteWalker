@@ -8,7 +8,7 @@ What sparked the project was being able to hunt SQLite database files using Eric
 ## ***DISCLAIMER*** 
 The script works on Windows but may not have support on other OS's, feedback is greatly appreciated!
 
-It has only been run on test data, use at your own risk!
+The script has only been run on test data, use at your own risk!
 
 ## Command Line Switches
 ```
