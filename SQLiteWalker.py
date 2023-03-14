@@ -22,8 +22,8 @@ ____    __    ____  ___       __       __  ___  _______ .______
    \    /\    / /  _____  \  |  `----.|  .  \  |  |____ |  |\  \----.
     \__/  \__/ /__/     \__\ |_______||__|\__\ |_______|| _| `._____|
     
-                SQLite Walker
-                https://github.com/stark4n6/SQLite_Walker
+                SQLiteWalker v0.0.1
+                https://github.com/stark4n6/SQLiteWalker
                 @KevinPagano3 | @stark4n6 | startme.stark4n6.com
                                                                      '''
 
@@ -46,7 +46,7 @@ def open_sqlite_db_readonly(path):
 
 def main():
     
-    base = "SQLite_Walker_Out_"
+    base = "SQLiteWalker_Out_"
     data_list = []
     error_list = []
     data_headers = ('File Name','File Path','Tables')
@@ -57,7 +57,7 @@ def main():
     start_time = time.time()
     
     #Command line arguments
-    parser = argparse.ArgumentParser(description='SQLite Walker')
+    parser = argparse.ArgumentParser(description='SQLite Walker by @KevinPagano3 | @stark4n6 | https://github.com/stark4n6/SQLiteWalker')
     parser.add_argument('-i', '--input_path', required=True, type=str, action="store", help='Input file/folder path')
     parser.add_argument('-o', '--output_path', required=True, type=str, action="store", help='Output folder path')
     parser.add_argument('-q', '--quiet_mode', required=False, action="store_true", help='Turns off console path output')
