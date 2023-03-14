@@ -1,9 +1,7 @@
 ![alt text](https://github.com/stark4n6/SQLite-Walker/blob/main/SQLiteWalker.png)
 
 # SQLite Walker
-SQLite Walker is a python script to walk a folder or a zip file looking for SQLite databases. If it finds any it will query the table structure and export them to the output path and create a TSV formatted export file with a list of files found. The TSV includes the file name, paths from the source, and the table structure.
-
-What sparked the project was being able to hunt SQLite database files using Eric Zimmerman's [SQLECmd](https://github.com/EricZimmerman/SQLECmd/tree/master/SQLECmd) while just producing a list of files only (no map parsing). In the [DFIR Museum](https://github.com/AndrewRathbun/DFIRArtifactMuseum/tree/main/Android) there are similar text file outputs that Andrew Rathbun created. Hopefully others can get good use out of this script for research purposes or for quick triage during casework.
+SQLite Walker is a python script to walk a folder or a zip file looking for SQLite databases. If it finds any it will query the table structure and export them to the output path and create a TSV formatted export file with a list of files found. The TSV includes the file name, paths from the source, and the table structure. Hopefully others can get good use out of this script for research purposes or for quick triage during casework.
 
 ## ***DISCLAIMER*** 
 The script works on Windows but may not have support on other OS's, feedback is greatly appreciated!
@@ -25,3 +23,6 @@ options:
 - GUI
 - .TAR support
 - Extract -wal / -shm
+
+## Acknowledgements
+What sparked the project was being able to hunt SQLite database files using Eric Zimmerman's [SQLECmd](https://github.com/EricZimmerman/SQLECmd/tree/master/SQLECmd) while just producing a list of files only (no map parsing). In the [DFIR Museum](https://github.com/AndrewRathbun/DFIRArtifactMuseum/tree/main/Android) there are similar text file outputs that Andrew Rathbun created. I want to thank Alexis Brignoni for small snippets of code pulled from ALEAPP.
