@@ -3,6 +3,8 @@
 # SQLite Walker
 SQLite Walker is a python script to walk a folder or a zip file looking for SQLite databases. If it finds any it will query the table structure and export them to the output path and create a TSV formatted export file with a list of files found. The TSV includes the file name, paths from the source, and the table structure. Hopefully others can get good use out of this script for research purposes or for quick triage during casework.
 
+Blog link: [https://www.stark4n6.com/2023/03/introducing-sqlitewalker.html](https://www.stark4n6.com/2023/03/introducing-sqlitewalker.html)
+
 ## ***DISCLAIMER*** 
 The script works on Windows but may not have support on other OS's, feedback is greatly appreciated!
 
