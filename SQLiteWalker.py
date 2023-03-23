@@ -49,15 +49,15 @@ def main():
     base = "SQLiteWalker_Out_"
     data_list = []
     error_list = []
-    data_headers = ('File Name','File Path','Tables')
-    error_headers = ('File Name','File Path','Error')
+    data_headers = ('File Name','Export Path','Tables')
+    error_headers = ('File Name','Export Path','Error')
     count = 0
     error_count = 0    
 
     start_time = time.time()
     
     #Command line arguments
-    parser = argparse.ArgumentParser(description='SQLiteWalker v0.0.1 by @KevinPagano3 | @stark4n6 | https://github.com/stark4n6/SQLiteWalker')
+    parser = argparse.ArgumentParser(description='SQLiteWalker v0.0.2 by @KevinPagano3 | @stark4n6 | https://github.com/stark4n6/SQLiteWalker')
     parser.add_argument('-i', '--input_path', required=True, type=str, action="store", help='Input file/folder path')
     parser.add_argument('-o', '--output_path', required=True, type=str, action="store", help='Output folder path')
     parser.add_argument('-q', '--quiet_mode', required=False, action="store_true", help='Turns off console path output')
@@ -121,15 +121,26 @@ def main():
                 output_ts = time.strftime("%Y%m%d-%H%M%S")
                 out_folder = output_path + base + output_ts
                 for file in files:
+                    file_name = file.rsplit("/",1)
                     if file.endswith(('-shm','-wal')):
                         my_zip.extract(file,(out_folder + splitter + 'db_out'))
+                        
+                        new_path = out_folder + splitter + 'db_out' + file
+                        if platform:
+                            new_path = new_path.replace('/','\\')
+                        
+                        data_list.append((file_name[1], new_path[4:], ''))
                     else:
                         with my_zip.open(file) as f:
                             header = f.read(100)
                             if header.startswith(b'\x53\x51\x4c\x69\x74\x65\x20\x66\x6f\x72\x6d\x61\x74\x20\x33\x00'):
                                 my_zip.extract(file,(out_folder + splitter + 'db_out'))
                                 try:
-                                    db_connect = sqlite3.connect(out_folder + splitter + 'db_out' + splitter + file)
+                                    new_path = out_folder + splitter + 'db_out' + file
+                                    if platform:
+                                        new_path = new_path.replace('/','\\')                                    
+                                    
+                                    db_connect = sqlite3.connect(new_path)
                 
                                     sql_query = """SELECT name FROM sqlite_master
                                     WHERE type='table';"""
@@ -145,10 +156,8 @@ def main():
                                     if entries > 0:
                                         for row in tables:
                                             tables_list.append(row[0])
-                                            
-                                        file_name = file.rsplit("/",1)
                                         
-                                        data_list.append((file_name[1], file, tables_list))
+                                        data_list.append((file_name[1], new_path[4:], tables_list))
                                         count += 1
                                         if not quiet_mode:
                                             print('DB '+str(count) + ': ' + file)
@@ -157,7 +166,7 @@ def main():
                                     if not quiet_mode:
                                         print("Failed to open the database: ", error)
                                         print(file)
-                                    error_list.append((file_name[1], file, error))
+                                    error_list.append((file_name[1], new_path[4:], error))
                                     error_count += 1
                                 
                                 finally:
@@ -171,24 +180,28 @@ def main():
         output_ts = time.strftime("%Y%m%d-%H%M%S")
         out_folder = output_path + base + output_ts
         os.mkdir(out_folder)
+        
         for root, dirs, files in os.walk(input_path):
-            for name in files:
-                file = os.path.join(root, name)
-                file_name = name
+            for file in files:
                 if file.endswith(('-shm','-wal')):
-                    if root in file:
-                        relative_path = os.path.relpath(root,input_path)
-                        new_path = os.path.join(out_folder + splitter + 'db_out' + splitter,relative_path)
-                        if not os.path.exists(new_path):
-                            shutil.copytree(root,new_path)                
-                else:              
-                    if os.path.isfile(file):
-                        if os.path.getsize(file) > 100:                      
-                            with open(file,'r', encoding = "ISO-8859-1") as f:
+                    src_file_path = os.path.join(root, file)
+                    
+                    dest_folder_path = os.path.join(out_folder, os.path.relpath(root, input_path))
+                    dest_file_path = os.path.join(dest_folder_path, file)
+                    os.makedirs(dest_folder_path, exist_ok=True)
+                    
+                    shutil.copy2(src_file_path, dest_file_path)
+                    data_list.append((file, dest_file_path[4:], ''))
+                            
+                else:      
+                    src_file_path = os.path.join(root, file)
+                    if os.path.isfile(src_file_path):
+                        if os.path.getsize(src_file_path) > 100:                      
+                            with open(src_file_path,'r', encoding = "ISO-8859-1") as f:
                                 header = f.read(100)
                                 if header.startswith('SQLite format 3'):
                                     try:
-                                        db_connect = open_sqlite_db_readonly(file)
+                                        db_connect = open_sqlite_db_readonly(src_file_path)
             
                                         sql_query = """SELECT name FROM sqlite_master
                                         WHERE type='table';"""
@@ -202,22 +215,24 @@ def main():
                                         for row in tables:
                                             tables_list.append(row[0])
                                         
-                                        data_list.append((file_name, file, tables_list))
                                         count += 1
                                         if not quiet_mode:
-                                            print('DB '+str(count) + ': ' + file)
+                                            print('DB '+str(count) + ': ' + src_file_path)
     
-                                        if root in file:
-                                            relative_path = os.path.relpath(root,input_path)
-                                            new_path = os.path.join(out_folder + splitter + 'db_out' + splitter,relative_path)
-                                            if not os.path.exists(new_path):
-                                                shutil.copytree(root,new_path)
+                                            src_file_path = os.path.join(root, file)
+                                            
+                                            dest_folder_path = os.path.join(out_folder, os.path.relpath(root, input_path))
+                                            dest_file_path = os.path.join(dest_folder_path, file)
+                                            os.makedirs(dest_folder_path, exist_ok=True)
+                                            
+                                            shutil.copy2(src_file_path, dest_file_path)
+                                            data_list.append((file, dest_file_path[4:], tables_list))
                                         
                                     except sqlite3.Error as error:
                                         if not quiet_mode:
                                             print("Failed to execute the above query", error)
                                             print(file)
-                                        error_list.append((file_name[1], file, error))
+                                        error_list.append((file, dest_file_path[4:], error))
                                         error_count += 1
                                     
                                     finally:
