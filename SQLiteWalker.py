@@ -14,7 +14,7 @@ ascii_art = '''
       |   (----`|  |  |  |   |  |     |  | `---|  |----`|  |__          
        \   \    |  |  |  |   |  |     |  |     |  |     |   __|         
    .----)   |   |  `--'  '--.|  `----.|  |     |  |     |  |____        
-   |_______/     \_____\_____\_______||__|     |__|     |_______|                                                 
+   |_______/     \_____\_____\_______||__|     |__|     |_______| 
 ____    __    ____  ___       __       __  ___  _______ .______      
 \   \  /  \  /   / /   \     |  |     |  |/  / |   ____||   _  \     
  \   \/    \/   / /  ^  \    |  |     |  '  /  |  |__   |  |_)  |    
@@ -22,7 +22,7 @@ ____    __    ____  ___       __       __  ___  _______ .______
    \    /\    / /  _____  \  |  `----.|  .  \  |  |____ |  |\  \----.
     \__/  \__/ /__/     \__\ |_______||__|\__\ |_______|| _| `._____|
     
-                SQLiteWalker v0.0.2
+                SQLiteWalker v0.0.3
                 https://github.com/stark4n6/SQLiteWalker
                 @KevinPagano3 | @stark4n6 | startme.stark4n6.com
                                                                      '''
@@ -52,7 +52,8 @@ def main():
     data_headers = ('File Name','Export Path','Tables')
     error_headers = ('File Name','Export Path','Error')
     count = 0
-    error_count = 0    
+    error_count = 0
+    splitter = ''
 
     start_time = time.time()
     
@@ -124,8 +125,9 @@ def main():
                     file_name = file.rsplit("/",1)
                     if file.endswith(('-shm','-wal')):
                         my_zip.extract(file,(out_folder + splitter + 'db_out'))
-                        
-                        new_path = out_folder + splitter + 'db_out' + file
+                        if file.startswith('/'):
+                            file = file[1:]
+                        new_path = out_folder + splitter + 'db_out' + splitter + file
                         if platform:
                             new_path = new_path.replace('/','\\')
                         
@@ -136,11 +138,13 @@ def main():
                             if header.startswith(b'\x53\x51\x4c\x69\x74\x65\x20\x66\x6f\x72\x6d\x61\x74\x20\x33\x00'):
                                 my_zip.extract(file,(out_folder + splitter + 'db_out'))
                                 try:
-                                    new_path = out_folder + splitter + 'db_out' + file
+                                    if file.startswith('/'):
+                                        file = file[1:]
+                                    new_path = out_folder + splitter + 'db_out' + splitter + file
+                                        
                                     if platform:
                                         new_path = new_path.replace('/','\\')                                    
-                                    
-                                    db_connect = sqlite3.connect(new_path)
+                                    db_connect = open_sqlite_db_readonly(new_path)
                 
                                     sql_query = """SELECT name FROM sqlite_master
                                     WHERE type='table';"""
@@ -172,6 +176,7 @@ def main():
                                 finally:
                                     if db_connect:
                                         db_connect.close()
+
         else:
             print('File is not a .zip, please try again. Exiting......')
             sys.exit()
