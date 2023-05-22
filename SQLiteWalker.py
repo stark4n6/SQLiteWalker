@@ -121,6 +121,7 @@ def main():
                 files = my_zip.namelist()
                 output_ts = time.strftime("%Y%m%d-%H%M%S")
                 out_folder = output_path + base + output_ts
+                os.makedirs(out_folder + splitter + 'db_out')
                 for file in files:
                     file_name = file.rsplit("/",1)
                     if file.endswith(('-shm','-wal')):
