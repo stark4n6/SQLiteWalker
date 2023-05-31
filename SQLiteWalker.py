@@ -22,7 +22,7 @@ ____    __    ____  ___       __       __  ___  _______ .______
    \    /\    / /  _____  \  |  `----.|  .  \  |  |____ |  |\  \----.
     \__/  \__/ /__/     \__\ |_______||__|\__\ |_______|| _| `._____|
     
-                SQLiteWalker v0.0.4
+                SQLiteWalker v0.0.5
                 https://github.com/stark4n6/SQLiteWalker
                 @KevinPagano3 | @stark4n6 | startme.stark4n6.com
                                                                      '''
@@ -58,7 +58,7 @@ def main():
     start_time = time.time()
     
     #Command line arguments
-    parser = argparse.ArgumentParser(description='SQLiteWalker v0.0.4 by @KevinPagano3 | @stark4n6 | https://github.com/stark4n6/SQLiteWalker')
+    parser = argparse.ArgumentParser(description='SQLiteWalker v0.0.5 by @KevinPagano3 | @stark4n6 | https://github.com/stark4n6/SQLiteWalker')
     parser.add_argument('-i', '--input_path', required=True, type=str, action="store", help='Input file/folder path')
     parser.add_argument('-o', '--output_path', required=True, type=str, action="store", help='Output folder path')
     parser.add_argument('-q', '--quiet_mode', required=False, action="store_true", help='Turns off console path output')
@@ -115,13 +115,14 @@ def main():
     
     folder, basename = os.path.split(input_path)
     
+    output_ts = time.strftime("%Y%m%d-%H%M%S")
+    out_folder = output_path + base + output_ts
+    os.makedirs(out_folder + splitter + 'db_out')
+    
     if basename.find('.') > 0:
         if basename.endswith('.zip'):
             with zipfile.ZipFile(input_path, 'r') as my_zip:
                 files = my_zip.namelist()
-                output_ts = time.strftime("%Y%m%d-%H%M%S")
-                out_folder = output_path + base + output_ts
-                os.makedirs(out_folder + splitter + 'db_out')
                 for file in files:
                     file_name = file.rsplit("/",1)
                     if file.endswith(('-shm','-wal')):
@@ -183,10 +184,6 @@ def main():
             sys.exit()
     
     else:
-        output_ts = time.strftime("%Y%m%d-%H%M%S")
-        out_folder = output_path + base + output_ts
-        os.mkdir(out_folder)
-        
         for root, dirs, files in os.walk(input_path):
             for file in files:
                 if file.endswith(('-shm','-wal')):
