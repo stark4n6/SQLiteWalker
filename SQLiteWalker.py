@@ -22,11 +22,10 @@ ____    __    ____  ___       __       __  ___  _______ .______
    \    /\    / /  _____  \  |  `----.|  .  \  |  |____ |  |\  \----.
     \__/  \__/ /__/     \__\ |_______||__|\__\ |_______|| _| `._____|
     
-                SQLiteWalker v0.0.5
+                SQLiteWalker v0.0.6
                 https://github.com/stark4n6/SQLiteWalker
                 @KevinPagano3 | @stark4n6 | startme.stark4n6.com
                                                                      '''
-
 def is_platform_windows():
     '''Returns True if running on Windows'''
     return os.name == 'nt'
@@ -53,12 +52,14 @@ def main():
     error_headers = ('File Name','Export Path','Error')
     count = 0
     error_count = 0
+    wal_count = 0
+    shm_count = 0
     splitter = ''
 
     start_time = time.time()
     
     #Command line arguments
-    parser = argparse.ArgumentParser(description='SQLiteWalker v0.0.5 by @KevinPagano3 | @stark4n6 | https://github.com/stark4n6/SQLiteWalker')
+    parser = argparse.ArgumentParser(description='SQLiteWalker v0.0.6 by @KevinPagano3 | @stark4n6 | https://github.com/stark4n6/SQLiteWalker')
     parser.add_argument('-i', '--input_path', required=True, type=str, action="store", help='Input file/folder path')
     parser.add_argument('-o', '--output_path', required=True, type=str, action="store", help='Output folder path')
     parser.add_argument('-q', '--quiet_mode', required=False, action="store_true", help='Turns off console path output')
@@ -113,6 +114,10 @@ def main():
     print('Destination: '+ output_path)
     print('-'* (len('Source: '+ input_path)))
     
+    if quiet_mode:
+        print('Quiet mode enabled.')
+        print('These aren\'t the logs you\'re looking for.')
+    
     folder, basename = os.path.split(input_path)
     
     output_ts = time.strftime("%Y%m%d-%H%M%S")
@@ -132,6 +137,14 @@ def main():
                         new_path = out_folder + splitter + 'db_out' + splitter + file
                         if platform:
                             new_path = new_path.replace('/','\\')
+                        if file.endswith('-shm'):
+                            shm_count += 1
+                            if not quiet_mode:
+                                print('SHM ' + str(shm_count) + ': ' + file)
+                        else:
+                            wal_count += 1
+                            if not quiet_mode:
+                                print('WAL ' + str(wal_count) + ': ' + file)
                         
                         data_list.append((file_name[1], new_path[4:], ''))
                     else:
@@ -143,9 +156,9 @@ def main():
                                     if file.startswith('/'):
                                         file = file[1:]
                                     new_path = out_folder + splitter + 'db_out' + splitter + file
-                                        
+                                    
                                     if platform:
-                                        new_path = new_path.replace('/','\\')                                    
+                                        new_path = new_path.replace('/','\\')
                                     db_connect = open_sqlite_db_readonly(new_path)
                 
                                     sql_query = """SELECT name FROM sqlite_master
@@ -166,7 +179,13 @@ def main():
                                         data_list.append((file_name[1], new_path[4:], tables_list))
                                         count += 1
                                         if not quiet_mode:
-                                            print('DB '+str(count) + ': ' + file)
+                                            print('DB ' + str(count) + ': ' + file)
+                                            
+                                    else:
+                                        data_list.append((file_name[1], new_path[4:], ''))
+                                        count += 1
+                                        if not quiet_mode:
+                                            print('DB ' + str(count) + ': ' + file)
                                     
                                 except sqlite3.Error as error:
                                     if not quiet_mode:
@@ -194,6 +213,16 @@ def main():
                     os.makedirs(dest_folder_path, exist_ok=True)
                     
                     shutil.copy2(src_file_path, dest_file_path)
+                    
+                    if file.endswith('-shm'):
+                            shm_count += 1
+                            if not quiet_mode:
+                                print('SHM ' + str(shm_count) + ': ' + file)
+                    else:
+                        wal_count += 1
+                        if not quiet_mode:
+                            print('WAL ' + str(wal_count) + ': ' + file)                    
+                    
                     data_list.append((file, dest_file_path[4:], ''))
                             
                 else:      
@@ -220,16 +249,16 @@ def main():
                                         
                                         count += 1
                                         if not quiet_mode:
-                                            print('DB '+str(count) + ': ' + src_file_path)
+                                            print('DB ' + str(count) + ': ' + src_file_path)
     
-                                            src_file_path = os.path.join(root, file)
-                                            
-                                            dest_folder_path = os.path.join(out_folder, os.path.relpath(root, input_path))
-                                            dest_file_path = os.path.join(dest_folder_path, file)
-                                            os.makedirs(dest_folder_path, exist_ok=True)
-                                            
-                                            shutil.copy2(src_file_path, dest_file_path)
-                                            data_list.append((file, dest_file_path[4:], tables_list))
+                                        src_file_path = os.path.join(root, file)
+                                        
+                                        dest_folder_path = os.path.join(out_folder, os.path.relpath(root, input_path))
+                                        dest_file_path = os.path.join(dest_folder_path, file)
+                                        os.makedirs(dest_folder_path, exist_ok=True)
+                                        
+                                        shutil.copy2(src_file_path, dest_file_path)
+                                        data_list.append((file, dest_file_path[4:], tables_list))
                                         
                                     except sqlite3.Error as error:
                                         if not quiet_mode:
@@ -259,6 +288,8 @@ def main():
     print('****JOB FINISHED****')
     print('Runtime: %s seconds' % (time.time() - start_time))
     print('DBs Found: ' + str(count))
+    print('SHMs Found: ' + str(shm_count))
+    print('WALs Found: ' + str(wal_count))
     print('Error Count: ' + str(error_count))
     if error_count > 0:
         print('Check error file error_list.tsv for details')
