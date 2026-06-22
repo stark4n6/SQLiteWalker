@@ -317,7 +317,7 @@ def run_scan(input_path, output_path, quiet_mode, log_cb, progress_cb, done_cb):
             archive_type = "tar"
 
         else:
-            log_cb("Input file is not a supported archive (.zip/.tar). Aborting.\n", "error")
+            log_cb("Input file is not a supported archive (.zip / .tar / .tar.gz / .tgz). Aborting.\n", "error")
             done_cb(0, 0, 0, 0, 0, out_folder)
             return
 
@@ -373,12 +373,10 @@ def run_scan(input_path, output_path, quiet_mode, log_cb, progress_cb, done_cb):
                     new_path = new_path.replace("/", "\\")
                 if file.endswith("-shm"):
                     shm_count += 1
-                    if not quiet_mode:
-                        log_cb(f"  SHM {shm_count}: {file}\n", "shm")
+                    log_cb(f"  SHM {shm_count}: {file}\n", "shm")
                 else:
                     wal_count += 1
-                    if not quiet_mode:
-                        log_cb(f"  WAL {wal_count}: {file}\n", "wal")
+                    log_cb(f"  WAL {wal_count}: {file}\n", "wal")
                 dest = new_path[4:] if _is_windows() else new_path
                 data_list.append((file_name[-1], dest, ""))
 
@@ -448,8 +446,7 @@ def run_scan(input_path, output_path, quiet_mode, log_cb, progress_cb, done_cb):
                     dest = new_path[4:] if _is_windows() else new_path
                     data_list.append((file_name[-1], dest, tables_list))
                     count += 1
-                    if not quiet_mode:
-                        log_cb(f"  DB {count}: {file}  [{len(tables_list)} tables]\n", "db")
+                    log_cb(f"  DB {count}: {file}  [{len(tables_list)} tables]\n", "db")
                 except sqlite3.Error as e:
                     log_cb(f"  ERROR: {file} - {e}\n", "error")
                     dest = new_path[4:] if _is_windows() else new_path
@@ -483,12 +480,10 @@ def run_scan(input_path, output_path, quiet_mode, log_cb, progress_cb, done_cb):
                 shutil.copy2(src, dest_file)
                 if file.endswith("-shm"):
                     shm_count += 1
-                    if not quiet_mode:
-                        log_cb(f"  SHM {shm_count}: {file}\n", "shm")
+                    log_cb(f"  SHM {shm_count}: {file}\n", "shm")
                 else:
                     wal_count += 1
-                    if not quiet_mode:
-                        log_cb(f"  WAL {wal_count}: {file}\n", "wal")
+                    log_cb(f"  WAL {wal_count}: {file}\n", "wal")
                 data_list.append((file, dest_file, ""))
                 continue
 
@@ -520,8 +515,7 @@ def run_scan(input_path, output_path, quiet_mode, log_cb, progress_cb, done_cb):
 
                 data_list.append((file, dest_file, tables_list))
                 count += 1
-                if not quiet_mode:
-                    log_cb(f"  DB {count}: {src}  [{len(tables_list)} tables]\n", "db")
+                log_cb(f"  DB {count}: {file}  [{len(tables_list)} tables]\n", "db")
             except sqlite3.Error as e:
                 log_cb(f"  ERROR: {file} - {e}\n", "error")
                 error_list.append((file, src, e))
@@ -620,8 +614,7 @@ class SQLiteWalkerApp(tk.Tk):
         self.src_type = tk.StringVar(value="folder")
         for val, lbl in [
             ("folder", "Folder"),
-            ("zip", "ZIP file"),
-            ("tar", "TAR archive")
+            ("archive", "Archive (.zip / .tar / .tar.gz / .tgz)"),
         ]:
             tk.Radiobutton(src_row, text=lbl,
                         variable=self.src_type,
@@ -644,12 +637,7 @@ class SQLiteWalkerApp(tk.Tk):
         opts = tk.Frame(body, bg=BG)
         opts.grid(row=3, column=0, sticky="ew", pady=(4, 10))
 
-        self.quiet_var = tk.BooleanVar(value=False)
-        tk.Checkbutton(opts, text="Quiet mode  (suppress path logging)",
-                       variable=self.quiet_var,
-                       font=SANS_SM, bg=BG, fg=FG, selectcolor=BG_INPUT,
-                       activebackground=BG, activeforeground=ACCENT,
-                       relief="flat", bd=0).pack(side="left")
+        self.quiet_var = tk.BooleanVar(value=True)  # always quiet; only hits are logged
 
         # "Open Output" is disabled until at least one scan completes
         self.open_btn = tk.Button(opts, text="Open Output",
@@ -810,7 +798,7 @@ class SQLiteWalkerApp(tk.Tk):
     # ------------------------------------------------------------------
 
     def _on_src_type_change(self):
-        # Clear the path field when the user switches between folder/zip
+        # Clear the path field when the user switches between folder/archive
         ph = "Path to scan"
         if self.input_path.get() not in (ph, ""):
             self.input_path.delete(0, "end")
@@ -822,28 +810,14 @@ class SQLiteWalkerApp(tk.Tk):
     # ------------------------------------------------------------------
 
     def _browse_source(self):
-        if self.src_type.get() in ("zip", "tar"):
-
-            if self.src_type.get() == "zip":
-                title = "Select ZIP archive"
-                types = [
-                    ("ZIP archives", "*.zip"),
-                    ("All files", "*.*")
-                ]
-
-            else:
-                title = "Select TAR archive"
-                types = [
-                    ("TAR archives", "*.tar"),
-                    ("Compressed TAR archives", "*.tar.gz *.tgz"),
-                    ("All files", "*.*")
-                ]
-
+        if self.src_type.get() == "archive":
             path = filedialog.askopenfilename(
-                title=title,
-                filetypes=types
+                title="Select archive",
+                filetypes=[
+                    ("Supported archives", "*.zip *.tar *.tar.gz *.tgz"),
+                    ("All files", "*.*"),
+                ]
             )
-
         else:
             path = filedialog.askdirectory(
                 title="Select source folder"
