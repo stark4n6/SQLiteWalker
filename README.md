@@ -1,4 +1,4 @@
-<p align="center"><img src=(https://github.com/stark4n6/SQLiteWalker/blob/main/logo.png) alt="SQLiteWalker" width="300" height="300"></p>
+<p align="center"><img src=https://github.com/stark4n6/SQLiteWalker/blob/main/logo.png alt="SQLiteWalker" width="300" height="300"></p>
 
 # SQLiteWalker
 SQLiteWalker is a python script to walk a folder or archive file looking for SQLite databases. If it finds any it will query the table structure and export them to the output path and create a TSV and SQLite formatted export file with a list of files found. The TSV includes the file name, data type, paths from the source, and the table structure. Hopefully others can get good use out of this script for research purposes or for quick triage during casework.
