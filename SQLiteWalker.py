@@ -75,6 +75,15 @@ _ICON_ICO_B64 = (
     "AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAMMOAADDDgAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAv8UGQb/GiAH/wAAA/8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAf8dJAn/cY4N/6nWCP+s2wj/hKgK/zE9Cv8AAAL/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8LDgb/WXEO/6bTCv+n1Aj/ZH0K/1huCv+Ywgn/seEI/2+PC/8cIwj/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAT/QFIM/5W9C/+z4gj/d5cN/xohCv8AAAD/AAAA/xIXBv9jfQz/q9kJ/6XSCv9Ybgz/Cw4G/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAH/KDMK/3+iDf+15gn/j7UK/zE+Cf84SA7/dZUM/zxMCP8PEwX/AAAA/wAAAf8lLgn/fJwL/7TkCP+SuQ3/PU0N/wAAA/8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/FhoJ/2aBDv+v3Av/o80L/1FmDP8HCAX/AAAB/2N8C/+l0gn/i68P/05gEv8AAAH/AAAA/wAAAP8AAAP/PEsK/5S5C/+25Qn/fZ4M/yUvCv8AAAH/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/BgcF/09jDf+eyQr/qtgH/2V9Df8WGwj/AAAA/wAAAP8RFQf/nccP/zRCCv8AAAL/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/CgwG/1ZsDP+m0gn/rNkK/2J9DP8RFgf/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/yUtCv+Osg3/s+AI/42yCf+eyQr/MDwL/wAAAP8AAAH/AQEB/2mFDP+izQr/DA8F/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/xsiCP9uiw3/suAI/57IC/8+Twz/AAAB/wAAAP8AAAD/AAAA/wAAAP8PEgb/lbwO/6PNCP9BUAv/BwkG/32dDf+15Az/O0oM/wAAAP8EBQX/mMEH/3+hB/8AAAL/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAv8xPQr/kLUJ/6zZDP8pMQv/AAAA/wAAAP8AAAD/AAAA/zlHDf+04gv/PE0K/wAAAP8AAAD/ExgG/32bDv98mRj/BQcG/wAABv+TuRH/VmsM/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8dJAr/q9kL/2F5D/8AAAD/AAAA/wAAAP8AAAD/Q1QN/67aDf8iKwf/AAAA/wQFBP8AAAH/CAoI/4OkH/9PYxn/ZoAS/2+KHP8PEQf/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wkKBv+cxQz/a4cM/wAAAP8AAAD/AAAA/wAAAP9CUgz/rtkM/yEqBv8ICwP/g6IZ/y87EP8GCAT/ZH0d/4CiEv+15wr/S14P/wAAAP8AAAD/ExcK/wEAAv8AAAP/EBUH/xohCf8bIwr/GiEI/xEWBf8AAAH/AAAA/wAAAP8AAAD/DA8G/57HDP9rhQr/AAAA/wAAAP8AAAD/AAAA/0JSC/+u2Qv/HSUG/xIXBf+r1xH/WXAW/wAAAv9qhxH/tOUF/3OQEf8AAAT/AAAA/wMEBP+Nshr/UmgT/3iYC/+WwQj/nsoJ/6DOCf+Vvg7/eJcV/3COE/88TA3/AgIB/wAAAP8MDwb/nscM/2qECv8AAAD/AAAA/wAAAP8AAAD/QlIM/67ZC/8fKAb/CAsE/5W7FP8bIgX/FRwO/4qvE/+Lrg7/YXYg/xEVCP8AAAL/eJUU/4yxFv93lhT/r98D/5rEA/+QuAT/j7cD/4qtC/9yjhj/epkY/5G3Fv8XHgX/AAAA/wwPBv+dxgv/a4QK/wAAAP8AAAD/AAAA/wAAAP9CUgz/rtkL/x8nBv8OEgX/mcAV/xATBf9FVRb/d5Md/2yIEv+Vuxf/LTkP/3ucEv9+nBX/LjgR/2qCFv9PYxD/SVwR/0peEP9LXhD/TGAQ/1dtEf9XbRH/cowV/xccBv8AAAD/DA8G/57GC/9rhAr/AAAA/wAAAP8AAAD/AAAA/0JSC/+u2Av/HSQG/xYdBf+r1RP/GyEG/wAAA/+CpBH/s+MA/2yJD/9shxj/k7kS/wcIBP8UGQj/bYoP/460B/+gzAP/qNYC/6vbAv+cxgz/cY4Y/2uJFv9TaRT/Cg0F/wAAAP8MDwb/ncYL/2qECf8AAAD/AAAA/wAAAP8AAAD/QlIM/67YDP8gKAb/DhIE/36dGP8tNxL/MT4M/5/JCf+gzAD/kbkG/3GMHv8sNRH/AAAA/z1MCf+56Qf/l74D/4ChBv91kgj/dJAK/3KNDP9mfxX/cY4W/5G5E/8aIAX/AAAA/wwPBv+dxQz/aoQK/wAAAP8AAAD/AAAA/wAAAP9CUgz/r9kN/yUwCP8AAAD/NUMR/6PMFf9kgBX/msMH/5zIAP+o1QD/b4wW/wcHDP8AAAD/LjgM/11zFP9JWhD/UWcO/1hvDv9YcA//WG8Q/1hvEv9WbBH/YHkU/xMYBv8AAAD/DA8G/57FDP9rhAr/AAAA/wAAAP8AAAD/AAAA/0JSDP+u2Qz/JS8H/wAAAP8ICQP/jLAL/5e+Df9qhRL/oswB/6vXAf9rhgz/AAAB/wAAAP8dJAn/gqUO/6XRBP+w3wL/suEB/7TlAP+l0Qr/e5oY/3iXF/9lgBf/DhEF/wAAAP8MDgb/nsUL/2qFCv8AAAD/AAAA/wAAAP8AAAD/QlIL/6/ZC/8lLgf/AAAA/wAAAP8kLgj/fp8X/3WUFv+m1AD/pM8I/09jDv8AAAD/AAAA/0JRCv+q1gr/epoL/2aADf9acgz/WG8M/11yD/9hdxT/Z4AW/5G3E/8cIwX/AAAA/wwOBv+exQv/aoQK/wAAAP8AAAD/AAAA/wAAAP9CUgv/r9kM/yUuB/8AAAD/AAAA/wAAAP8FBgn/VGgS/4quEv9LYBP/JC0K/wEAAf8AAAD/Jy4L/1drE/9WbRH/Z4MO/3GQDP9ykwv/cI4M/2aCDf9ZcBH/VmsV/xIWBv8AAAD/DA4G/57EC/9rhAr/AAAA/wAAAP8AAAD/AAAA/0RUDf+w2w7/ISkH/wAAAP8AAAD/AAAA/wAAAP8qNQ7/aIMW/5zHBf+Qtwv/CQsG/wAAAP8eJQn/n8gQ/7TlBf+u3QH/qdgA/6nXAP+q2AD/r98C/7bnB/+FpRP/CAkG/wAAAP8ICgb/nsQL/22HC/8AAAD/AAAA/wAAAP8AAAD/NUEL/7XjDf9HWwz/AAAA/wAAAP8AAAD/DxII/5e/EP+k0QD/pNIA/5G5Bv8KDQb/AAAA/wQFAv8vOQr/XnQN/3aVCv+Epwr/hqoK/4OkCf9zkAz/VWkN/yAnCf8AAAD/AAAA/yUuC/+v3Av/W3AO/wAAAP8AAAD/AAAA/wAAAP8JCwT/ia0O/6zZC/9WbQ3/CQwG/wAAAP8LDgf/mL4Q/6bUBf+o1QX/i64N/wcIBf8AAAD/AAAA/wAAAP8AAAD/AAAC/wIDBP8EBAX/AQEE/wAAAv8AAAD/AAAA/wAAA/8+Tgz/nMQJ/6XODf8cIgj/AAAA/wAAAP8AAAD/AAAA/wAAAP8XHQf/fZwP/7bkDP+RuA//O0wM/wAAA/8VGgf/JTAJ/yYwCf8XHAf/AAAB/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAf8lLwr/fJ0O/7blCP+UuAr/LzkK/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAP/Pk0M/5a7Df+05Qv/epsO/xwjCv8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8SFwj/Y34P/63cCv+m0Av/VGoM/wgKBv8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/Cw4G/1huDf+o0wv/q9oL/2B6Df8QFAf/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8DBAX/SFsM/53IDP+z4gr/cIwN/xofCf8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/x0kCP9ykQ3/s+MK/5zGDP9GWQz/AgIF/wAAAP8AAAD/AAAA/wAAAP8AAAL/MDwM/4qvDP+35wr/iasL/y87C/8AAAL/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAv81QQv/jbAO/7bmCv+Fqg3/LTkK/wAAA/8AAAH/GiEJ/3CNDv+z4gv/nscL/0lbDP8DBAT/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8FBgX/TmEM/6HLCv+u3gj/dJMM/2mGDP+k0Av/r9sL/2N7Df8RFQf/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/FhoI/2iCDP+hygr/ptAL/3mYDP8lLgr/AAAB/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAB/wkLBv8NDwb/AAAC/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
 )
 
+def resource_path(relative_path):
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 def _set_window_icon(root):
     try:
         if _is_windows():
@@ -617,22 +626,22 @@ class SQLiteWalkerApp(tk.Tk):
                   command=self._show_about).grid(row=1, column=0, columnspan=2, sticky="w", pady=(4, 0))
 
         # Right Column Layout checking for external asset availability
-        script_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in locals() else os.getcwd()
-        logo_path = os.path.join(script_dir, "logo.png")
+        #script_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in locals() else os.getcwd()
+        #logo_path = os.path.join(script_dir, "logo.png")
 
-        if os.path.exists(logo_path):
-            try:
-                # Load external photo reference and divide layout dimensions strictly by 3
-                full_img = tk.PhotoImage(file=logo_path)
-                self._main_logo_img = full_img.subsample(3, 3)
-                
-                logo_label = tk.Label(bar, image=self._main_logo_img, bg=BG_PANEL, cursor="hand2")
-                logo_label.grid(row=0, column=2, sticky="e")
-                
-                # Double feature: clicking logo opens script repository hub
-                logo_label.bind("<Button-1>", lambda e: webbrowser.open_new_tab("https://github.com/stark4n6/SQLiteWalker"))
-            except Exception:
-                pass
+        #if os.path.exists(logo_path):
+        try:
+            # Load external photo reference and divide layout dimensions strictly by 3
+            full_img = tk.PhotoImage(file=resource_path("logo.png"))
+            self._main_logo_img = full_img.subsample(3, 3)
+            
+            logo_label = tk.Label(bar, image=self._main_logo_img, bg=BG_PANEL, cursor="hand2")
+            logo_label.grid(row=0, column=2, sticky="e")
+            
+            # Double feature: clicking logo opens script repository hub
+            logo_label.bind("<Button-1>", lambda e: webbrowser.open_new_tab("https://github.com/stark4n6/SQLiteWalker"))
+        except Exception:
+            pass
 
     def _build_body(self):
         body = tk.Frame(self, bg=BG)
@@ -1099,6 +1108,19 @@ def main():
         app = SQLiteWalkerApp()
         app.mainloop()
 
+def hide_console_window():
+    """Hides the console window if running as an executable on Windows."""
+    if sys.platform == "win32":
+        import ctypes
+        # Get the handle of the current console window
+        hwnd = ctypes.windll.kernel32.GetConsoleWindow()
+        if hwnd:
+            # Hide the window (SW_HIDE = 0)
+            ctypes.windll.user32.ShowWindow(hwnd, 0)
 
 if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        # No arguments passed; hide the console and launch the GUI
+        hide_console_window()
+        
     main()
