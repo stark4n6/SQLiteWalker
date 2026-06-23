@@ -1068,7 +1068,7 @@ def main():
     # Setup argument parser to support standard execution or headless CLI sweeps
     # Disable automatic -h handling so we can intercept it cleanly
     parser = argparse.ArgumentParser(
-        description="SQLiteWalker: Walk a folder or archive sequentially mapping out SQLite files.",
+        description=f"SQLiteWalker {VERSION} | https://github.com/stark4n6/SQLiteWalker | https://startme.stark4n6.com",
         add_help=False 
     )
     parser.add_argument("-i", "--source", help="Path to input file or directory to scan.")
