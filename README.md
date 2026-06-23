@@ -5,7 +5,7 @@ SQLiteWalker is a python script to walk a folder or archive file looking for SQL
 
 Blog link: [https://www.stark4n6.com/2023/03/introducing-sqlitewalker.html](https://www.stark4n6.com/2023/03/introducing-sqlitewalker.html)
 
-v1 blog link: []()
+v1 blog link: [https://www.stark4n6.com/2026/06/sqlitewalker-v100-new-hope.html](https://www.stark4n6.com/2026/06/sqlitewalker-v100-new-hope.html)
 
 ## ***DISCLAIMER*** 
 The script works on Windows but may not have support on other OS's, feedback is greatly appreciated!
